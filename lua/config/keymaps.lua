@@ -12,7 +12,7 @@ map({ "n" }, "<C-u>", "<C-u>zz", { silent = true })
 
 -- comment
 map({ "n", "v" }, "<leader>/", "gc", { silent = true, remap = true })
-map({ "n", "v" }, "<leader>/", "gcc", { silent = true, remap = true })
+map({ "n" }, "<leader>/", "gcc", { silent = true, remap = true })
 
 -- run script (work in progress)
 map({ "n" }, "<leader>rs", function()
