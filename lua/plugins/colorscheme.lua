@@ -3,7 +3,7 @@ return {
   config = function()
     require("onedark").setup({
       -- Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-      style = "darker",
+      style = "dark",
       transparent = true,
       lualine = {
         transparent = true, -- lualine center bar transparency

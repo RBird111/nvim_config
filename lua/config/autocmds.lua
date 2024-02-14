@@ -3,8 +3,14 @@
 -- Add any additional autocmds here
 local autocmd = vim.api.nvim_create_autocmd
 
+-- Auto resize panes when resizing nvim window
+-- autocmd("VimResized", {
+--   pattern = "*",
+--   command = "tabdo wincmd =",
+-- })
+
 autocmd("ExitPre", {
-    group = vim.api.nvim_create_augroup("Exit", { clear = true }),
-    command = "set guicursor=a:ver90",
-    desc = "Set cursor back to beam when leaving Neovim.",
+  group = vim.api.nvim_create_augroup("Exit", { clear = true }),
+  command = "set guicursor=a:ver90",
+  desc = "Set cursor back to beam when leaving Neovim.",
 })

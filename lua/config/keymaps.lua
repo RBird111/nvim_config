@@ -9,6 +9,7 @@ local map = vim.keymap.set
 -- better up/down
 map({ "n" }, "<C-d>", "<C-d>zz", { silent = true })
 map({ "n" }, "<C-u>", "<C-u>zz", { silent = true })
+map({ "n" }, "G", "Gzz", { silent = true })
 
 -- comment
 map({ "n", "v" }, "<leader>/", "gc", { silent = true, remap = true })
