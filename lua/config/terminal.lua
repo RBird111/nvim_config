@@ -16,8 +16,8 @@ function M.run_script()
 
   local ft_cmds = {
     py = "python3 " .. vim.fn.expand("%"),
-    js = "node " .. vim.fn.expand("%"),
-    ts = "node " .. vim.fn.expand("%"),
+    js = "bun " .. vim.fn.expand("%"),
+    ts = "bun " .. vim.fn.expand("%"),
     rs = "cargo run",
     ex = "elixir " .. vim.fn.expand("%"),
     exs = "elixir " .. vim.fn.expand("%"),
