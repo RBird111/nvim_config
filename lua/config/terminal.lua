@@ -1,10 +1,10 @@
--- local go = function()
---   local s = vim.fn.globpath(".", "*")
---   if string.find(s, "./main") then
---     return "go run main/main.go"
---   end
---   return "go run ."
--- end
+local go = function()
+  local s = vim.fn.globpath(".", "*")
+  if string.find(s, "./main") then
+    return "go run main/main.go"
+  end
+  return "go run ."
+end
 
 local M = {}
 
@@ -21,7 +21,7 @@ function M.run_script()
     rs = "cargo run",
     ex = "elixir " .. vim.fn.expand("%"),
     exs = "elixir " .. vim.fn.expand("%"),
-    go = "go run .",
+    go = go(),
   }
 
   -- horizontal|vertical|float
