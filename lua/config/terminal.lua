@@ -11,16 +11,21 @@ function M.run_script()
   local cmd_pre = "cd " .. vim.fn.expand("%:p:h") .. " && "
 
   local run_cmds = {
-    py = "python3 " .. vim.fn.expand("%"),
-    js = "bun " .. vim.fn.expand("%"),
-    ts = "bun " .. vim.fn.expand("%"),
+    py = "python3 " .. vim.fn.expand("%:t"),
+    js = "bun " .. vim.fn.expand("%:t"),
+    ts = "bun " .. vim.fn.expand("%:t"),
     rs = "cargo run",
-    ex = "elixir " .. vim.fn.expand("%"),
-    exs = "elixir " .. vim.fn.expand("%"),
+    ex = "elixir " .. vim.fn.expand("%:t"),
+    exs = "elixir " .. vim.fn.expand("%:t"),
     go = M.go_cmd(),
   }
 
-  M.send(cmd_pre .. run_cmds[extension], "vertical")
+  local cmd = run_cmds[extension]
+  if cmd == nil then
+    cmd = "echo 'no run command for extension: ." .. extension .. "'"
+  end
+
+  M.send(cmd_pre .. cmd, "vertical")
 end
 
 function M.run_test()
@@ -28,7 +33,6 @@ function M.run_test()
   vim.cmd.write()
 
   local extension = vim.fn.expand("%:e")
-  local cmd_pre = "cd " .. vim.fn.expand("%:p:h") .. " && "
 
   local test_cmds = {
     py = "pytest",
@@ -40,7 +44,7 @@ function M.run_test()
     go = "go test -v --bench . --benchmem",
   }
 
-  M.send(cmd_pre .. test_cmds[extension], "vertical")
+  M.send(test_cmds[extension], "vertical")
 end
 
 function M.go_cmd()
@@ -54,7 +58,7 @@ function M.go_cmd()
     end
   end
 
-  return "echo 'main function not found'"
+  return nil
 end
 
 return M
