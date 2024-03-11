@@ -10,12 +10,12 @@ function M.run_script()
   local extension = vim.fn.expand("%:e")
 
   local run_cmds = {
-    py = "python3 " .. vim.fn.expand("%:t"),
-    js = "bun " .. vim.fn.expand("%:t"),
-    ts = "bun " .. vim.fn.expand("%:t"),
+    py = "python3 " .. vim.fn.expand("%"),
+    js = "bun " .. vim.fn.expand("%"),
+    ts = "bun " .. vim.fn.expand("%"),
     rs = "cargo run",
-    ex = "elixir " .. vim.fn.expand("%:t"),
-    exs = "elixir " .. vim.fn.expand("%:t"),
+    ex = "elixir " .. vim.fn.expand("%"),
+    exs = "elixir " .. vim.fn.expand("%"),
     go = M.go_cmd(),
   }
 
