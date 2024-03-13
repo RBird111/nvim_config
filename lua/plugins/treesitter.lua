@@ -6,6 +6,7 @@ return {
       "css",
       "html",
       "gleam",
+      "perl",
       "svelte",
       "tsx",
       "typescript",

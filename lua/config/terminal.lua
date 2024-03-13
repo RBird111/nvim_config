@@ -16,7 +16,9 @@ function M.run_script()
     rs = "cargo run",
     ex = "elixir " .. vim.fn.expand("%"),
     exs = "elixir " .. vim.fn.expand("%"),
+    gleam = "gleam run",
     go = M.go_cmd(),
+    pl = "perl " .. vim.fn.expand("%"),
   }
 
   local cmd = run_cmds[extension]
@@ -41,6 +43,7 @@ function M.run_test()
     ex = "mix test --include pending",
     exs = "mix test --include pending",
     go = "go test -v --bench . --benchmem",
+    pl = "prove",
   }
 
   M.send(test_cmds[extension], "vertical")

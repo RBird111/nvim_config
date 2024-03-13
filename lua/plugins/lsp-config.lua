@@ -4,6 +4,7 @@ return {
     servers = {
       svelte = {},
       gleam = {},
+      perlnavigator = {},
     },
   },
 }
