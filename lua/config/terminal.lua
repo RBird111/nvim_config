@@ -19,6 +19,7 @@ function M.run_script()
     gleam = "gleam run",
     go = M.go_cmd(),
     pl = "perl " .. vim.fn.expand("%"),
+    pm = "perl " .. vim.fn.expand("%"),
   }
 
   local cmd = run_cmds[extension]
@@ -43,7 +44,7 @@ function M.run_test()
     ex = "mix test --include pending",
     exs = "mix test --include pending",
     go = "go test -v --bench . --benchmem",
-    pl = "prove",
+    pm = "prove",
   }
 
   M.send(test_cmds[extension], "vertical")
