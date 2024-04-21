@@ -15,6 +15,11 @@ map({ "n" }, "G", "Gzz", { silent = true })
 map({ "n", "v" }, "<leader>/", "gc", { silent = true, remap = true })
 map({ "n" }, "<leader>/", "gcc", { silent = true, remap = true })
 
+-- hover action
+map({ "n" }, "gh", function()
+  vim.lsp.buf.hover()
+end, { silent = true, remap = true })
+
 -- run script (work in progress)
 map({ "n" }, "<leader>rs", require("config.terminal").run_script, { silent = true, desc = "Run script" })
 -- run test

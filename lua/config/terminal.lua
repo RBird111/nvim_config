@@ -2,10 +2,26 @@ local M = {}
 
 M.send = require("nvterm.terminal").send
 
+M.custom_cmd = nil
+
+M.clear_custom_cmd = function()
+  M.custom_cmd = nil
+end
+
+M.set_custom_cmd = function(input)
+  M.custom_cmd = input
+  M.send(M.custom_cmd, "vertical")
+end
+
 -- run script
 function M.run_script()
   -- save file
   vim.cmd.write()
+
+  if M.custom_cmd then
+    M.send(M.custom_cmd, "vertical")
+    return
+  end
 
   local extension = vim.fn.expand("%:e")
 
@@ -24,7 +40,8 @@ function M.run_script()
 
   local cmd = run_cmds[extension]
   if cmd == nil then
-    cmd = "echo 'no run command for extension: <." .. extension .. ">'"
+    vim.ui.input({ prompt = "Enter command: " }, M.set_custom_cmd)
+    return
   end
 
   M.send(cmd, "vertical")
