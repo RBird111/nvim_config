@@ -25,4 +25,9 @@ map({ "n" }, "<leader>rs", require("config.terminal").run_script, { silent = tru
 -- run test
 map({ "n" }, "<leader>rt", require("config.terminal").run_test, { silent = true, desc = "Run test" })
 -- run clear script
-map({ "n" }, "<leader>rc", require("config.terminal").clear_custom_cmd, { silent = true, desc = "Run script" })
+map(
+  { "n" },
+  "<leader>rc",
+  require("config.terminal").clear_custom_cmd,
+  { silent = true, desc = "Clear custom command" }
+)
