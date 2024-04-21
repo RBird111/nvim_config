@@ -40,7 +40,8 @@ function M.run_script()
 
   local cmd = run_cmds[extension]
   if cmd == nil then
-    vim.ui.input({ prompt = "Enter command: " }, M.set_custom_cmd)
+    local opts = { prompt = "Enter command: ", default = vim.fn.expand("%:p") }
+    vim.ui.input(opts, M.set_custom_cmd)
     return
   end
 
