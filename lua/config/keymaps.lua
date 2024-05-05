@@ -15,6 +15,9 @@ map({ "n" }, "G", "Gzz", { silent = true })
 map({ "n", "v" }, "<leader>/", "gc", { silent = true, remap = true })
 map({ "n" }, "<leader>/", "gcc", { silent = true, remap = true })
 
+-- clear search
+map({ "n" }, "<ESC><ESC>", ":noh<CR>", { silent = true })
+
 -- hover action
 map({ "n" }, "gh", function()
   vim.lsp.buf.hover()
