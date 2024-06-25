@@ -4,6 +4,5 @@
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.opt.list = false
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
