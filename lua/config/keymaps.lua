@@ -18,6 +18,17 @@ map({ "n" }, "<leader>/", "gcc", { silent = true, remap = true })
 -- clear search
 map({ "n" }, "<ESC><ESC>", ":noh<CR>", { silent = true })
 
+-- smart-splits
+-- map({ "n" }, "<C-h>", require("smart-splits").move_cursor_left)
+-- map({ "n" }, "<C-j>", require("smart-splits").move_cursor_down)
+-- map({ "n" }, "<C-k>", require("smart-splits").move_cursor_up)
+-- map({ "n" }, "<C-l>", require("smart-splits").move_cursor_right)
+
+-- clear extra EOL character
+map({ "n" }, ",m", function()
+  vim.cmd(":%s/\r//g")
+end, { silent = true })
+
 -- hover action
 map({ "n" }, "gh", function()
   vim.lsp.buf.hover()
@@ -25,8 +36,10 @@ end, { silent = true })
 
 -- run script (work in progress)
 map({ "n" }, "<leader>rs", require("config.terminal").run_script, { silent = true, desc = "Run script" })
+
 -- run test
 map({ "n" }, "<leader>rt", require("config.terminal").run_test, { silent = true, desc = "Run test" })
+
 -- run clear script
 map(
   { "n" },
