@@ -33,17 +33,3 @@ end, { silent = true })
 map({ "n" }, "gh", function()
   vim.lsp.buf.hover()
 end, { silent = true })
-
--- run script (work in progress)
-map({ "n" }, "<leader>rs", require("config.terminal").run_script, { silent = true, desc = "Run script" })
-
--- run test
-map({ "n" }, "<leader>rt", require("config.terminal").run_test, { silent = true, desc = "Run test" })
-
--- run clear script
-map(
-  { "n" },
-  "<leader>rc",
-  require("config.terminal").clear_custom_cmd,
-  { silent = true, desc = "Clear custom command" }
-)
