@@ -1,5 +1,4 @@
 local colorschemes = {
-  -- ONEDARK
   onedark = {
     {
       "LazyVim/LazyVim",
@@ -19,8 +18,10 @@ local colorschemes = {
             transparent = false, -- lualine center bar transparency
           },
           highlights = {
+            ["@string.escape"] = { fg = "$orange" },
             ["@string.special.perl"] = { fg = "$orange" },
             ["@lsp.type.variable.perl"] = { fg = "$red" },
+            ["@lsp.type.variable.rust"] = { fg = "$red" },
             ["@lsp.type.property"] = { fg = "$cyan" },
           },
         })
@@ -28,7 +29,27 @@ local colorschemes = {
       end,
     },
   },
-  -- CATPPUCCIN
+  kanagawa = {
+    {
+      "LazyVim/LazyVim",
+      opts = {
+        colorscheme = "kanagawa",
+      },
+    },
+    {
+      "rebelot/kanagawa.nvim",
+      priority = 1000,
+      config = function()
+        require("kanagawa").setup({
+          -- wave, dragon, lotus
+          theme = "wave",
+          transparent = true,
+          colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
+        })
+        require("kanagawa").load()
+      end,
+    },
+  },
   catppuccin = {
     {
       "LazyVim/LazyVim",
@@ -47,4 +68,4 @@ local colorschemes = {
   },
 }
 
-return colorschemes.onedark
+return colorschemes.kanagawa
