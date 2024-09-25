@@ -1,8 +1,8 @@
 local M = {}
 M.theme = function()
   local colors = {
-    darkgray = "#16161d",
-    gray = "#727169",
+    darkgray = "#C8C093",
+    gray = "#DCD7BA",
     innerbg = nil,
     outerbg = "#16161D",
     normal = "#7e9cd8",
