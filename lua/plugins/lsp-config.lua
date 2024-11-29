@@ -3,8 +3,11 @@ return {
   opts = {
     inlay_hints = { enabled = false },
     servers = {
-      svelte = {},
-      gleam = {},
+      bashls = {
+        settings = {
+          filetypes = { "sh", "zsh" },
+        },
+      },
       perlnavigator = {},
     },
   },
