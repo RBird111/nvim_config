@@ -1,6 +1,9 @@
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
--- Add any additional autocmds here
+
+-- Add any additional autocmds here with `vim.api.nvim_create_autocmd`
+-- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
+-- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 local autocmd = vim.api.nvim_create_autocmd
 
 -- Auto resize panes when resizing nvim window
@@ -8,12 +11,6 @@ autocmd("VimResized", {
   pattern = "*",
   command = "tabdo wincmd =",
 })
-
--- autocmd("ExitPre", {
---   group = vim.api.nvim_create_augroup("Exit", { clear = true }),
---   command = "set guicursor=a:ver90",
---   desc = "Set cursor back to beam when leaving Neovim.",
--- })
 
 autocmd({ "BufLeave", "FocusLost" }, {
   pattern = "*",
