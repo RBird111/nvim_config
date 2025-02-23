@@ -8,6 +8,7 @@ return {
           filetypes = { "sh", "zsh" },
         },
       },
+      racket_langserver = {},
       perlnavigator = {},
     },
   },
