@@ -17,3 +17,29 @@ autocmd({ "BufLeave", "FocusLost" }, {
   command = "silent! wall",
   desc = "Save buffers on focus loss.",
 })
+
+local usercmd = vim.api.nvim_create_user_command
+
+local function doc(cmd)
+  local r = vim.system(cmd, { text = true, timeout = 1000 }):wait()
+  vim.cmd([[vertical new<CR>]])
+
+  -- Just set the file to a new name
+  vim.cmd.file({ "man://" .. cmd[#cmd], mods = { silent = true } })
+  vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(r.stdout, "\n"))
+  vim.cmd("1") -- moves cursor to first line
+
+  vim.cmd([[Man!]])
+
+  vim.bo.buftype = "nofile"
+  vim.bo.bufhidden = "unload"
+  vim.bo.modified = false
+end
+
+usercmd("Godoc", function(params)
+  doc({ "go", "doc", "-all", params.args })
+end, { nargs = 1 })
+
+usercmd("Perldoc", function(params)
+  doc({ "perldoc", params.args })
+end, { nargs = 1 })
