@@ -45,6 +45,8 @@ local colorschemes = {
               NormalFloat = { bg = "none" },
               FloatBorder = { bg = "none" },
               FloatTitle = { bg = "none" },
+              Tabline = { bg = "none" },
+              TablineFill = { bg = "none" },
 
               -- Save an hlgroup with dark background and dimmed foreground
               -- so that you can use it where you still want darker windows.
