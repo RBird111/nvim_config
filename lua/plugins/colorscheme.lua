@@ -1,12 +1,6 @@
 local colorschemes = {
   onedark = {
     {
-      "LazyVim/LazyVim",
-      opts = {
-        colorscheme = "onedark",
-      },
-    },
-    {
       "navarasu/onedark.nvim",
       priority = 1000,
       config = function()
@@ -21,20 +15,21 @@ local colorschemes = {
         require("onedark").load()
       end,
     },
-  },
-  kanagawa = {
     {
       "LazyVim/LazyVim",
       opts = {
-        colorscheme = "kanagawa-wave",
+        colorscheme = "onedark",
       },
     },
+  },
+  kanagawa = {
     {
       "rebelot/kanagawa.nvim",
       priority = 1000,
       config = function()
         require("kanagawa").setup({
           -- wave, dragon, lotus
+          compile = true,
           theme = "wave",
           transparent = true,
           colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
@@ -45,7 +40,7 @@ local colorschemes = {
               NormalFloat = { bg = "none" },
               FloatBorder = { bg = "none" },
               FloatTitle = { bg = "none" },
-              Tabline = { bg = "none" },
+              -- Tabline = { bg = "none" },
               TablineFill = { bg = "none" },
 
               -- Save an hlgroup with dark background and dimmed foreground
@@ -63,20 +58,26 @@ local colorschemes = {
         require("kanagawa").load()
       end,
     },
-  },
-  catppuccin = {
     {
       "LazyVim/LazyVim",
       opts = {
-        colorscheme = "catppuccin-mocha",
+        colorscheme = "kanagawa-wave",
       },
     },
+  },
+  catppuccin = {
     {
       "catppuccin",
       priority = 1000,
       opts = {
         flavor = "mocha",
         transparent_background = true,
+      },
+    },
+    {
+      "LazyVim/LazyVim",
+      opts = {
+        colorscheme = "catppuccin-mocha",
       },
     },
   },
